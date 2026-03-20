@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316390636946",
+    "project_id": "inventaryapp-d4da2",
+    "storage_bucket": "inventaryapp-d4da2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316390636946:android:d89bfefbfd0e5bca03554b",
+        "android_client_info": {
+          "package_name": "com.example.inventarioapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUtyL2iKgcg4XN40rFfU56t7GGzHwTDzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -27,6 +27,6 @@ public interface ProductoDao {
     @Query("SELECT * FROM productos WHERE Cantidad <= :Cantidad")
     List<Producto> productosConStockBajo(int Cantidad);
     // Productos de un cliente específico
-    @Query("SELECT * FROM productos WHERE IdCliente =  :IdCliente")
+    @Query("SELECT * FROM productos WHERE idCliente =  :IdCliente")
     List<Producto> obtenerporCliente(int IdCliente);
 }

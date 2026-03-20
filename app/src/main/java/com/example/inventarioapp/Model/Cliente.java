@@ -1,17 +1,17 @@
 package com.example.inventarioapp.Model;
 
-import java.util.ArrayList;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 //inicio de guardar en base de datos
-@Entity(tableName = "Clientes")
+@Entity(tableName = "clientes")
 public class Cliente {
-    String nombre;
-    String numeroTelefono;
-    double saldo;
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    private String nombre;
+    private String numeroTelefono;
+    private double saldo;
 //constructores
-    public Cliente(String nombre, String numeroTelefono, double saldo, int id) {
+    public Cliente(String nombre, String numeroTelefono, double saldo) {
         this.nombre = nombre;
         this.numeroTelefono = numeroTelefono;
         this.saldo = saldo;

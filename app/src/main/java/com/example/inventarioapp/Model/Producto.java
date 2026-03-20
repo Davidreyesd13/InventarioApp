@@ -5,80 +5,80 @@ import androidx.room.PrimaryKey;
 import androidx.room.ForeignKey;
 
 //conexion de tablas
-@Entity(tableName = "Productos",
+@Entity(tableName = "productos",
 foreignKeys = @ForeignKey(
         entity = Cliente.class,
-        parentColumns = "Id",
-        childColumns = "IdCliente",
+        parentColumns = "id",
+        childColumns = "idCliente",
         onDelete = ForeignKey.SET_NULL)
 )
 public class Producto {
     @PrimaryKey(autoGenerate = true)
-    private int Id;
-    private Integer IdCliente;
-    private String Nombre;
-    private double Precio;
-    private int Cantidad;
-    private String Marca;
+    private int id;
+    private Integer idCliente;
+    private String nombre;
+    private double precio;
+    private int cantidad;
+    private String marca;
 //constructores
     public Producto() {
 
     }
 
     public Producto(String nombre, double precio, int cantidad, String marca) {
-        Nombre = nombre;
-        Precio = precio;
-        Cantidad = cantidad;
-        Marca = marca;
-        this.IdCliente = null;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.marca = marca;
+        this.idCliente = null;
 
     }
 //Getters y Setters
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
-    public void setNombre(String nombre) {
-        Nombre = nombre;
+    public void setNombre(String Nombre) {
+        nombre = Nombre;
     }
 
     public double getPrecio() {
-        return Precio;
+        return precio;
     }
 
-    public void setPrecio(double precio) {
-        Precio = precio;
+    public void setPrecio(double Precio) {
+        precio = Precio;
     }
 
     public int getCantidad() {
-        return Cantidad;
+        return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
-        Cantidad = cantidad;
+    public void setCantidad(int Cantidad) {
+        cantidad = Cantidad;
     }
 
     public String getMarca() {
-        return Marca;
+        return marca;
     }
 
-    public void setMarca(String marca) {
-        Marca = marca;
+    public void setMarca(String Marca) {
+        marca = Marca;
     }
 
     public Integer getIdCliente() {
-        return IdCliente;
+        return idCliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
-        IdCliente = idCliente;
+    public void setIdCliente(Integer IdCliente) {
+        this.idCliente = IdCliente;
     }
 
     public int getId() {
-        return Id;
+        return id;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setId(int Id) {
+        id = Id;
     }
 }
