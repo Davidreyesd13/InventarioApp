@@ -9,6 +9,9 @@ public class FirebaseRepository {
     private static final String COL_Products="productos";
     private static final String COL_Clients="clientes";
 
+    public FirebaseRepository() {
+    }
+
     public FirebaseRepository(FirebaseFirestore db) {
         db = FirebaseFirestore.getInstance();
     }

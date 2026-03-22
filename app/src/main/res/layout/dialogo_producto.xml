@@ -1,0 +1,70 @@
+<?xml version="1.0" enconding="utf-8" ?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del producto"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ejem: Shampoo"
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marca"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: Sedal"
+
+        android:inputType="text"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Precio (L.)"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_precio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: 50.00"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_cantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ej: 10"
+        android:inputType="number"
+        android:layout_marginBottom="12dp"/>
+</LinearLayout>

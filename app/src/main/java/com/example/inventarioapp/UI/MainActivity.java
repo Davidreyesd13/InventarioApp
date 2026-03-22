@@ -1,78 +1,83 @@
 package com.example.inventarioapp.UI;
-
 import android.os.Bundle;
-
-import com.example.inventarioapp.R;
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.inventarioapp.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import com.example.inventarioapp.R;
+import com.example.inventarioapp.UI.ClientesFragment;
+import com.example.inventarioapp.UI.InventarioFragment;
+import com.example.inventarioapp.UI.ResumenFragment;
+import com.example.inventarioapp.UI.StockBajoFragment;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        setSupportActionBar(binding.toolbar);
+        // Drawer
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close
+        );
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        // Navegación
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
+            if (id == R.id.nav_resumen) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ResumenFragment())
+                        .commit();
+
+            } else if (id == R.id.nav_stock) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new StockBajoFragment())
+                        .commit();
+
+            } else if (id == R.id.nav_clientes) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new ClientesFragment())
+                        .commit();
+
+            } else if (id == R.id.nav_inventario) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, new InventarioFragment())
+                        .commit();
             }
-        });
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+            drawerLayout.closeDrawer(GravityCompat.START);
             return true;
-        }
+        });
 
-        return super.onOptionsItemSelected(item);
+        // Pantalla inicial
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, new ResumenFragment())
+                .commit();
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
+
 }
