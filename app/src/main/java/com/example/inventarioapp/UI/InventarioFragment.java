@@ -168,7 +168,7 @@ public class InventarioFragment extends Fragment {
                     db.productoDao().insert(nuevo);
 
                     // Guardar en Firebase
-                    new FirebaseRepository().guardarProducto(nuevo);
+                    new FirebaseRepository().subirProducto(nuevo);
 
                     Toast.makeText(requireContext(),
                             nombre + " agregado ✅",
@@ -223,7 +223,7 @@ public class InventarioFragment extends Fragment {
                     db.productoDao().update(producto);
 
                     // Actualizar en Firebase
-                    new FirebaseRepository().guardarProducto(producto);
+                    new FirebaseRepository().subirProducto(producto);
 
                     Toast.makeText(requireContext(),
                             nombre + " actualizado ✅",

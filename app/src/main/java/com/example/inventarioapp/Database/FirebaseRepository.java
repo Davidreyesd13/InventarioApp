@@ -8,12 +8,9 @@ public class FirebaseRepository {
     //nombres de las colleciones en firebase
     private static final String COL_Products="productos";
     private static final String COL_Clients="clientes";
-
+//constructor
     public FirebaseRepository() {
-    }
-
-    public FirebaseRepository(FirebaseFirestore db) {
-        db = FirebaseFirestore.getInstance();
+        this.db = FirebaseFirestore.getInstance(); // ← this. es clave ✅
     }
     //subir un producto a Firebase
     public void subirProducto(Producto producto) {
