@@ -7,22 +7,24 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.inventarioapp.Model.Cliente;
+import com.example.inventarioapp.Model.DetallePedido;
+import com.example.inventarioapp.Model.Pedido;
 import com.example.inventarioapp.Model.Producto;
 
 @Database(
-        entities = {Producto.class, Cliente.class},
-        version = 1
+        entities = {Producto.class, Cliente.class, Pedido.class, DetallePedido.class},
+
+        version = 2
 )
 public abstract class AppDataBase extends RoomDatabase {
 
-    // Instancia única
     private static AppDataBase instancia;
 
-    // DAOs
     public abstract ProductoDao productoDao();
     public abstract ClientDao clienteDao();
+    public abstract PedidoDao pedidoDao();              // ← nuevo
+    public abstract DetallePedidoDao detallePedidoDao(); // ← nuevo
 
-    // Método para obtener la instancia
     public static synchronized AppDataBase getInstance(Context context) {
         if (instancia == null) {
             instancia = Room.databaseBuilder(
@@ -30,7 +32,7 @@ public abstract class AppDataBase extends RoomDatabase {
                             AppDataBase.class,
                             "inventario_db"
                     )
-                    .allowMainThreadQueries() // ← Solo para desarrollo
+                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
         }
