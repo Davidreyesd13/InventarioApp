@@ -3,14 +3,66 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5F5F5">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Encabezado -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Stock bajo"
-        android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="#E65100">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Producto"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Marca"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cant."
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="13sp"/>
+
+    </LinearLayout>
+
+    <!-- Mensaje si no hay productos con stock bajo -->
+    <TextView
+        android:id="@+id/tv_sin_alertas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="✅ No hay productos con stock bajo"
+        android:textSize="16sp"
+        android:textColor="#2E7D32"
+        android:gravity="center"
+        android:padding="24dp"
+        android:visibility="gone"/>
+
+    <!-- Lista de productos con stock bajo -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_stock_bajo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"/>
 
 </LinearLayout>

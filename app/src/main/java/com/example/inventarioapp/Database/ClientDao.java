@@ -25,6 +25,11 @@ void delete(Cliente cliente);
 @Query("SELECT * FROM clientes WHERE nombre LIKE :nombre")
 List<Cliente> buscarPorNombre(String nombre);
 //Clientes con saldo pendiente
-@Query("SELECT * FROM clientes WHERE saldo > 0")
-List<Cliente> clientesConSaldoPendiente();
+@Query("SELECT COALESCE(SUM(p.total),0) FROM pedidos p "+
+        "WHERE p.clienteId = :clienteId AND p.pagado = 0")
+double getpendingaccount(int clienteId);
+    // Clientes con saldo pendiente
+    @Query("SELECT * FROM clientes WHERE id IN " +
+            "(SELECT clienteId FROM pedidos WHERE pagado = 0)")
+    List<Cliente> obtenerConSaldo();
 }

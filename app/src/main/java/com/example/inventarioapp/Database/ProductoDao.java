@@ -20,6 +20,10 @@ public interface ProductoDao {
 //Obtener todos los productos
     @Query("SELECT * FROM productos")
     List<Producto> getAllProductos();
+
+    @Query("SELECT * FROM productos WHERE id = :id")
+    Producto getProductoById(int id);
+
 //Buscar por nombre
     @Query("SELECT * FROM productos WHERE nombre  LIKE :nombre")
     List<Producto> buscarPorNombre(String nombre);

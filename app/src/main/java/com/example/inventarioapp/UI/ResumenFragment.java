@@ -60,7 +60,7 @@ public class ResumenFragment extends Fragment {
         tvStockBajo.setText(String.valueOf(stockBajo.size()));
 
         // 4. Clientes con saldo pendiente
-        int clientesConSaldo = db.clienteDao().clientesConSaldoPendiente().size();
+        int clientesConSaldo = db.clienteDao().obtenerConSaldo().size();
         tvClientesSaldo.setText(String.valueOf(clientesConSaldo));
     }
 }

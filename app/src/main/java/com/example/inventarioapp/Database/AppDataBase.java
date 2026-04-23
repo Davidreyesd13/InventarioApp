@@ -14,7 +14,7 @@ import com.example.inventarioapp.Model.Producto;
 @Database(
         entities = {Producto.class, Cliente.class, Pedido.class, DetallePedido.class},
 
-        version = 2
+        version = 3
 )
 public abstract class AppDataBase extends RoomDatabase {
 

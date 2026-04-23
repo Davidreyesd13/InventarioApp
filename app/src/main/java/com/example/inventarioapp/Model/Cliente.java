@@ -14,7 +14,7 @@ public class Cliente {
     public Cliente(String nombre, String numeroTelefono, double saldo) {
         this.nombre = nombre;
         this.numeroTelefono = numeroTelefono;
-        this.saldo = saldo;
+
     }
 
     public Cliente() {
