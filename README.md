@@ -10,7 +10,7 @@ A mobile inventory and order management system built in Java for Android, design
 
 | Menu | Inventory | Customers | Order Detail |
 |------|-----------|-----------|--------------|
-| ![Menu](screenshots/menu.jpg) | ![Inventory](screenshots/inventario.jpg) | ![Customers](screenshots/clientes.jpg) | ![Order](screenshots/pedido.jpg) |
+| ![Menu](screenshots/menu.jpeg) | ![Inventory](screenshots/inventario.jpeg) | ![Customers](screenshots/clientes.jpeg) | ![Order](screenshots/pedido.jpeg) |
 
 ---
 
